@@ -1,0 +1,5 @@
+gene,source_rows,drug_columns,observed_drug_isolate_pairs
+PI,2171,"['FPV', 'ATV', 'IDV', 'LPV', 'NFV', 'SQV', 'TPV', 'DRV']",13898
+NRTI,1867,"['3TC', 'ABC', 'AZT', 'D4T', 'DDI', 'TDF']",10666
+NNRTI,2272,"['EFV', 'NVP', 'ETR', 'RPV', 'DOR']",5659
+INI,861,"['RAL', 'EVG', 'DTG', 'BIC', 'CAB']",2228

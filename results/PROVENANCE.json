@@ -1,0 +1,130 @@
+{
+  "package_version": "0.9.0-research",
+  "software_and_data_fingerprint": "42374487aabb5e1a",
+  "input_sources": [
+    {
+      "dataset": "PI",
+      "url": "https://hivdb.stanford.edu/download/GenoPhenoDatasets/PI_DataSet.txt",
+      "filename": "PI_DataSet.txt",
+      "sha256": "6fd96655bf8d5314dde46ceb014d86e5e023a505309a6ed77a3e4f9be46be1b5",
+      "bytes": 654360,
+      "columns": 109,
+      "checked_utc": "2026-11-03T17:30:37.403821+00:00"
+    },
+    {
+      "dataset": "NRTI",
+      "url": "https://hivdb.stanford.edu/download/GenoPhenoDatasets/NRTI_DataSet.txt",
+      "filename": "NRTI_DataSet.txt",
+      "sha256": "459a4c49f49b7ef960fc8da1ed2fe1c2fec68b04cc78be675a1fa83de7295fa0",
+      "bytes": 1155388,
+      "columns": 248,
+      "checked_utc": "2026-11-03T17:30:39.901138+00:00"
+    },
+    {
+      "dataset": "NNRTI",
+      "url": "https://hivdb.stanford.edu/download/GenoPhenoDatasets/NNRTI_DataSet.txt",
+      "filename": "NNRTI_DataSet.txt",
+      "sha256": "753bf2da2b323735cc5b310d903590e01ef481cbbbee6c30a3177c9c6db57a66",
+      "bytes": 1734850,
+      "columns": 325,
+      "checked_utc": "2026-11-03T17:30:42.217078+00:00"
+    },
+    {
+      "dataset": "INI",
+      "url": "https://hivdb.stanford.edu/download/GenoPhenoDatasets/INI_DataSet.txt",
+      "filename": "INI_DataSet.txt",
+      "sha256": "3c87a4e588723da461cf2dc2008ca95a7b5067aafa1a74b103a81febd5277c80",
+      "bytes": 557907,
+      "columns": 295,
+      "checked_utc": "2026-11-03T17:30:43.728575+00:00"
+    }
+  ],
+  "data_audit": {
+    "datasets": [
+      {
+        "gene": "PI",
+        "source_rows": 2171,
+        "drug_columns": [
+          "FPV",
+          "ATV",
+          "IDV",
+          "LPV",
+          "NFV",
+          "SQV",
+          "TPV",
+          "DRV"
+        ],
+        "observed_drug_isolate_pairs": 13898
+      },
+      {
+        "gene": "NRTI",
+        "source_rows": 1867,
+        "drug_columns": [
+          "3TC",
+          "ABC",
+          "AZT",
+          "D4T",
+          "DDI",
+          "TDF"
+        ],
+        "observed_drug_isolate_pairs": 10666
+      },
+      {
+        "gene": "NNRTI",
+        "source_rows": 2272,
+        "drug_columns": [
+          "EFV",
+          "NVP",
+          "ETR",
+          "RPV",
+          "DOR"
+        ],
+        "observed_drug_isolate_pairs": 5659
+      },
+      {
+        "gene": "INI",
+        "source_rows": 861,
+        "drug_columns": [
+          "RAL",
+          "EVG",
+          "DTG",
+          "BIC",
+          "CAB"
+        ],
+        "observed_drug_isolate_pairs": 2228
+      }
+    ],
+    "valid_pairs": 32313,
+    "unique_gene_genotypes": 7148,
+    "connected_isolate_groups": 5043,
+    "exact_duplicate_pair_measurements_collapsed": 138,
+    "outcome": "log2 of observed phenotypic fold-change (in vitro)",
+    "not_clinical_outcome": true,
+    "patient_identifiers_available": false
+  },
+  "configuration": {
+    "project_name": "HIV-ShiftGuard",
+    "mode": "research_only",
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "test_fraction": 0.2,
+    "calibration_fraction": 0.1,
+    "validation_fraction": 0.1,
+    "minimum_samples_per_drug": 100,
+    "minimum_train_samples": 60,
+    "minimum_calibration_samples": 12,
+    "minimum_test_samples": 15,
+    "forest_trees": 56,
+    "forest_max_depth": 15,
+    "min_samples_leaf": 3,
+    "coverage_target": 0.9,
+    "novelty_scale_gamma": 1.0,
+    "num_threads": 4,
+    "download_timeout_seconds": 60,
+    "max_download_attempts": 4
+  },
+  "started_or_resumed_utc": "2026-11-03T17:30:47.792735+00:00"
+}

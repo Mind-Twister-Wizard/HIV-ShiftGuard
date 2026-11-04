@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite the software and the Stanford HIV Drug Resistance Database when using this work."
+type: software
+title: "HIV-ShiftGuard: Mutation-Aware HIV-1 Antiretroviral Susceptibility Research Pipeline"
+version: "0.9.0-research"
+license: MIT
+authors:
+  - given-names: "Bashar Aswad Kokaz"
+    family-names: "Al-Saeedi"
+  - given-names: "Hossein"
+    family-names: "Tabasi"
+  - given-names: "Jasmine"
+    family-names: "Kaur"
+  - given-names: "Alok"
+    family-names: "Raj"
+    orcid: "https://orcid.org/0009-0003-7870-7065"
+  - given-names: "Pankaj"
+    family-names: "Vaidya"
+    orcid: "https://orcid.org/0000-0003-1304-630X"
+  - given-names: "Anurag"
+    family-names: "Rana"
+    orcid: "https://orcid.org/0000-0003-0247-8908"

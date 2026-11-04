@@ -1,0 +1,21 @@
+{
+  "completed_experiments": 67,
+  "distinct_drugs": 23,
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "observations": 32313,
+  "genotypes": 7148,
+  "groups": 5043,
+  "mean_drug_seed_rmse": 1.0174300110644539,
+  "mean_drug_seed_median_baseline_rmse": 2.3341239923243005,
+  "pooled_nominal_target": 0.9,
+  "pooled_standard_coverage": 0.9012028374627326,
+  "pooled_novelty_coverage": 0.9000205613241493,
+  "test_predictions": 19454,
+  "number_of_failures": 5,
+  "software_and_data_fingerprint": "42374487aabb5e1a",
+  "elapsed_seconds": 44.55
+}

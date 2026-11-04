@@ -1,0 +1,20 @@
+{
+  "project_name": "HIV-ShiftGuard",
+  "mode": "research_only",
+  "seeds": [11, 23, 37],
+  "test_fraction": 0.20,
+  "calibration_fraction": 0.10,
+  "validation_fraction": 0.10,
+  "minimum_samples_per_drug": 100,
+  "minimum_train_samples": 60,
+  "minimum_calibration_samples": 12,
+  "minimum_test_samples": 15,
+  "forest_trees": 56,
+  "forest_max_depth": 15,
+  "min_samples_leaf": 3,
+  "coverage_target": 0.90,
+  "novelty_scale_gamma": 1.0,
+  "num_threads": 4,
+  "download_timeout_seconds": 60,
+  "max_download_attempts": 4
+}

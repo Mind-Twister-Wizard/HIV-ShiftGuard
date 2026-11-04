@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="248" viewBox="0 0 1200 248" role="img" aria-labelledby="t d">
+<title id="t">HIV-ShiftGuard</title><desc id="d">Research software for HIV-1 antiretroviral drug susceptibility and uncertainty auditing.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071629"/><stop offset="1" stop-color="#123257"/></linearGradient><linearGradient id="line"><stop stop-color="#27d8b3"/><stop offset="1" stop-color="#56a8ff"/></linearGradient></defs>
+<rect width="1200" height="248" rx="20" fill="url(#bg)"/><g fill="none" stroke="#52709a" opacity=".25"><path d="M760 0v248M850 0v248M940 0v248M1030 0v248M1120 0v248M730 56h470M730 120h470M730 184h470"/></g>
+<path d="M795 151c20-1 25-91 48-89s30 132 55 131 30-121 52-121 30 64 51 64 27-56 48-55 21 58 50 57 23-43 49-42" fill="none" stroke="url(#line)" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+<rect x="48" y="40" width="164" height="26" rx="13" fill="#12473e"/><text x="62" y="59" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#7cf7d9" letter-spacing="1.5">OPEN RESEARCH</text>
+<text x="46" y="139" font-family="Arial,sans-serif" font-size="62" font-weight="750" fill="#fff">HIV-ShiftGuard</text>
+<text x="50" y="181" font-family="Arial,sans-serif" font-size="20" fill="#afc8e6">Mutation-aware regression · Conformal intervals · Reproducible evidence</text>
+<text x="50" y="216" font-family="Arial,sans-serif" font-size="13" fill="#79a9ce">STANFORD HIVDB  /  23 DRUGS  /  3 SEEDS  /  RESEARCH ONLY</text>
+</svg>
