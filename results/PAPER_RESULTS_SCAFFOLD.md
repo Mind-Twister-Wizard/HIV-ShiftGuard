@@ -1,3 +1,5 @@
+> **Historical automatically generated experiment scaffold.** For the current manuscript's author order and abstract, see [IEEE manuscript metadata](../paper/README.md). This scaffold is retained as a run artifact, not as the current manuscript.
+
 # HIV-ShiftGuard: Mutation-Novelty-Aware Uncertainty-Calibrated Prediction of HIV-1 Antiretroviral Susceptibility
 
 > **AUTO-GENERATED METHODS AND RESULTS SCAFFOLD. NOT A SUBMISSION-READY PAPER.**

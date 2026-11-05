@@ -4,7 +4,7 @@
   <p>
     <a href="docs/REPRODUCING.md">Reproduce</a> ·
     <a href="results/latest_report.html">Experiment report</a> ·
-    <a href="paper/HIV_ShiftGuard_ICIRSET2026_Manuscript.pdf">Manuscript</a> ·
+    <a href="paper/README.md">Manuscript</a> ·
     <a href="docs/index.html">Research overview</a>
   </p>
 </div>
@@ -50,7 +50,7 @@ The **90% nominal** unscaled prediction intervals had **90.12% pooled coverage**
 ## Figures from the manuscript
 
 <table>
-<tr><td width="50%"><img src="docs/assets/figures/figure_02_model_ablation_rmse.png" alt="Held-out model RMSE comparison" width="100%"/><sub><b>Model comparison</b> · RMSE</sub></td><td width="50%"><img src="docs/assets/figures/figure_03_drugwise_rmse.png" alt="Drug-specific held-out RMSE variation" width="100%"/><sub><b>Drug-level variation</b> · RMSE</sub></td></tr>
+<tr><td width="50%"><img src="docs/assets/figures/figure_02_model_ablation_rmse.png" alt="Held-out model RMSE comparison" width="100%"/><sub><b>Model comparison</b> · RMSE</sub></td><td width="50%"><img src="docs/assets/figures/figure_03_drugwise_rmse_ieee.svg" alt="Drug-specific held-out RMSE variation" width="100%"/><sub><b>Drug-level variation</b> · RMSE</sub></td></tr>
 <tr><td><img src="docs/assets/figures/figure_04_interval_coverage.png" alt="Coverage of unscaled and novelty-scaled intervals" width="100%"/><sub><b>Uncertainty audit</b> · Coverage</sub></td><td><img src="docs/assets/figures/figure_07_real_hivdb_case.png" alt="Real held-out HIVDB laboratory example" width="100%"/><sub><b>Held-out laboratory example</b> · Not a patient case</sub></td></tr>
 </table>
 
@@ -85,12 +85,14 @@ HIV-ShiftGuard/
 ├── config.json                  # Seeds and experiment configuration
 ├── results/                     # Actual reported aggregate results
 ├── docs/                        # Protocol, visual assets and research site
-└── paper/                       # Authored manuscript (DOCX and PDF)
+└── paper/                       # Current paper metadata and prior-version archive
 ```
 
 ## Authors
 
-Bashar Aswad Kokaz Al-Saeedi · Hossein Tabasi · Jasmine Kaur · **Alok Raj** (corresponding author) · Pankaj Vaidya · Anurag Rana  
+Jasmine Kaur · Hossein Tabasi · **Alok Raj** (corresponding author) · Pankaj Vaidya · Anurag Rana  
 Yogananda School of AI, Computers and Data Sciences, Shoolini University of Biotechnology and Management Sciences, India.
+
+**Current manuscript:** [IEEE-format ICAAIC 2027 version and author details](paper/README.md). The older ICIRSET Word/PDF files remain archived for version history; they are not the current author list.
 
 **Cite:** See [`CITATION.cff`](CITATION.cff). Source code is released under the MIT license; Stanford data and third-party material retain their own rights.

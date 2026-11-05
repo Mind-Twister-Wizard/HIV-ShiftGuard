@@ -1,56 +1,41 @@
-# HIV-ShiftGuard — preregisterable implementation study protocol
+# HIV-ShiftGuard — Study design and reproducibility
 
-## Venue and provisional paper
+**Current manuscript:** HIV-ShiftGuard: Mutation-Aware Ensemble Regression and an Uncertainty Audit of HIV-1 Antiretroviral Susceptibility.
 
-Target venue: ICIRSET 2026, AI and Data Science / Emerging Computing track, 20–21 November 2026. Verify current deadline, fees, virtual author presentation and proceedings indexing directly with the organizing committee.
+**Prepared format:** IEEE ICAAIC 2027 author-named manuscript (six pages). This designation does not indicate conference acceptance. See [paper metadata](../paper/README.md).
 
-**Working manuscript title:** *HIV-ShiftGuard: Mutation-Novelty-Gated Conformal Prediction of Antiretroviral Susceptibility under Genotypic Distribution Shift*
+## Research scope
 
-## Purpose and clinical boundary
+Retrospective prediction of HIV-1 antiretroviral susceptibility measured in vitro as log2 fold-change. The model is not validated for patient outcomes, drug selection, treatment safety, or HIV cure prediction.
 
-The study is about the response of HIV-1 isolates to established antiretroviral drugs in laboratory phenotypic assays. It is not a study of patient-level virologic suppression, drug safety, treatment regimen optimization, reservoir eradication, a functional cure or a sterilizing cure. No human treatment recommendations will be generated.
+## Dataset and partitions
 
-## Testable hypotheses
+Four Stanford HIVDB genotype–phenotype files (PI, NRTI, NNRTI, INI) supplied **32,313 valid drug–isolate measurements**. The study reports **7,148** gene-genotype records and **5,043** linked groups. Exact sequence IDs and shared within-gene mutation signatures define non-overlapping split groups. GroupShuffleSplit uses seeds **11, 23, 37** and target proportions of **60/10/10/20** for training, validation, calibration, and test respectively. These splits do not establish patient-level or temporal independence.
 
-- **H1 (point prediction):** Substitution-aware nonlinear genotype models improve *in-vitro* fold-susceptibility prediction over a training-median baseline under exact-genotype-heldout evaluation. If the linear baseline wins, report that instead.
-- **H2 (uncertainty):** Novelty-scaled conformal prediction intervals alter observed coverage and mean interval width relative to ordinary split conformal intervals. Improvement is not assumed in advance.
-- **H3 (selective prediction):** A gate combining genotypic novelty and interval width can reduce error on accepted (non-flagged) research predictions, with a measurable tradeoff in retention. Gate rules are selected without access to test labels.
-- **H4 (ablation):** Amino acid substitution identity provides measurable value beyond mutation position alone. The position-only ablation assesses this directly.
+## Models and evaluation
 
-## Data management / leakage risks
+- Baselines: training-target median, mutation ridge, mutation-based extremely randomized trees, and a position-only variant.
+- Ensemble: validation-tuned convex combination of ridge and mutation forest; selection uses validation error, not test labels.
+- Prediction intervals: 90% nominal split conformal based on calibration residuals, compared with a Jaccard genotype-novelty-scaled version.
+- Research review gate: uses calibration interval width and validation novelty thresholds; it is not a clinical recommendation mechanism.
+- Evaluation: 67 completed drug–seed runs across 23 drugs; test RMSE, MAE, and additional archived metrics; 300 group-cluster bootstrap draws per run.
 
-Four Stanford high-quality filtered genotype–phenotype tables, accessed automatically from official Stanford URLs. Each genomic sequence genotype is grouped by its mutation pattern (within gene) and Stanford SeqID (across genes) so that exact repeats cannot cross splits. Lack of patient and source-study identifiers prevents claims of patient- or study-independent validation. Duplicate gene/SeqID/drug measurements are collapsed by the median and counted. Missing drugs, ambiguous mutations and other source limitations remain explicitly recorded.
+The position-only comparator also changes model capacity. It is an **exploratory comparison**, not a single-variable-controlled ablation.
 
-## Model design
+## Recorded findings
 
-Training-only mutation vocabulary; one independent supervised regressor per drug. Fit a ridge baseline, nonlinear substitution ExtraTrees, and position-only tree ablation. Obtain a convex ridge/forest fusion coefficient from validation RMSE only. In separate calibration data, fit (i) absolute residual conformal intervals, (ii) fold-aware novelty-scaled intervals with predeclared gamma=1.0. Mutation novelty uses minimum exact Jaccard distance to a training genotype. No test label is observed during fitting, tuning or calibration.
+| Model | Mean RMSE | Mean MAE |
+|---|---:|---:|
+| Median baseline | 2.334 | 1.872 |
+| Mutation ridge | 1.113 | 0.824 |
+| Position-only trees | 1.267 | 0.862 |
+| Mutation forest | 1.111 | 0.759 |
+| HIV-ShiftGuard ensemble | **1.017** | **0.719** |
 
-## Repetitions and metrics
+At a nominal 90% target, pooled interval coverage was **90.12%** unscaled and **90.00%** novelty-scaled; the novelty-scaled intervals were slightly wider. The latter did **not** improve pooled coverage–width efficiency.
 
-Three fixed seeds: 11, 23, 37. Train/validation/calibration/test target ratios: 60/10/10/20 percent on groups; actual sample fractions are logged. Quantitative outputs: log2-fold RMSE, MAE, R2, Pearson r, Spearman rho; per-drug performance; 90% interval coverage and mean interval width; selective-prediction retention/accepted RMSE; 300 group-cluster bootstrap resamples per drug-seed for approximate 95% test RMSE and baseline-improvement intervals. Multiple models evaluated against the exact same test split. Missing/insufficient drug sets are transparently skipped.
+## Reproducible artifacts
 
-## Expected artifacts (without fabricating experiments)
+[Verification script](../scripts/verify_results.py) · [Archived results](../results/) · [Run provenance](../results/PROVENANCE.json) · [One-click guide](REPRODUCING.md).
 
-`results/latest_report.html`, `results/summary.json`, 10 CSV tables, 7 publication-useful PNG/SVG figures, per-seed checkpoints and test prediction files, and `PAPER_RESULTS_SCAFFOLD.md`. All result numbers come from downloads and model outputs at run time; the ZIP ships with no prefilled experimental results.
-
-## Novelties to evaluate critically
-
-The proposed combination of held-out genotype novelty, calibrated uncertainty, and research abstention is *a proposed integrated study design*. Existing HIVDR ML, conformal prediction, and protein-language-model techniques need proper comparisons and attribution. Treat a mixed or negative result as publishable evidence, not an excuse to claim universal superiority.
-
-## Publication and reproducibility checklist
-
-[ ] Confirm venue still accepting papers, hybrid author presentation, publication agreement, fees and Scopus status independently.
-[ ] Obtain original Stanford HIVDB data and preserve exact hashes.
-[ ] Run all three seeds, check errors/skips, review every result and double-check leakage checks.
-[ ] Validate whether reported fold measurement units and assay methodology support all claims.
-[ ] Compare with recent 2026 HIV protein language model research and HIVdb algorithms; do not claim novelty without literature review.
-[ ] Human author verifies design, interpretation, references and reproducibility; seek expert review from HIV pharmacology specialists if available.
-[ ] Insert measured figures and tables in actual submission template; do not use placeholder results or claim therapeutic efficacy.
-[ ] Document no patient efficacy/cure prediction and data/source restrictions.
-
-## Sources
-
-Stanford HIVDB: https://hivdb.stanford.edu/pages/genopheno.dataset.html  
-NIH clinical HIV drug resistance guidance: https://hivinfo.nih.gov/understanding-hiv/fact-sheets/drug-resistance  
-Farquhar, Bioinformatics (2026), protein language model benchmarking: https://pubmed.ncbi.nlm.nih.gov/42105210/  
-WHO updated treatment guidance (2026): https://www.who.int/news/item/07-01-2026-who-releases-updated-recommendations-on-hiv-clinical-management
+The recorded fingerprint is `42374487aabb5e1a`. Original data and per-observation records are not redistributed. No unverified new experiments or clinical claims are introduced here.
